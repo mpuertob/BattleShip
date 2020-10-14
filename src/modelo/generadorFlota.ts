@@ -5,3 +5,15 @@
 // solapado.
 //Necesita conocer la posicion maxima a la que puede desplegar un barco
 //(max fila o columna)
+
+import { Dimension } from "./Dimension";
+
+export class GeneradorFlota {
+  constructor(private _dimension: Dimension) {}
+
+  private obtenerNumeroAleatorio(minimo: number, maximo: number): number {
+    maximo += 1;
+    let aleatorio: number = Math.random() * (maximo - minimo + minimo);
+    return Math.floor(aleatorio);
+  }
+}
