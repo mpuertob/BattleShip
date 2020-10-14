@@ -1,5 +1,8 @@
 import { Barco } from "./Barco";
+import { Casilla } from "./casilla";
+import { Coordenada } from "./coordenada";
 import { Dimension } from "./Dimension";
+import { Estado } from "./estado";
 import { GeneradorFlota } from "./generadorFlota";
 
 /*Es la clase
@@ -19,5 +22,23 @@ export class Flota {
       let barco: Barco = this._generadorFlota.crearBarco(tamanoBarcos[i]);
       this._flota.push(barco);
     }
+  }
+
+  private getPosicionBarcoConcreto(
+    posicionBarco: number,
+    posicionCasilla: number
+  ) {
+    return this._flota[posicionBarco].posiciones[posicionCasilla];
+  }
+
+  private hundirBarco(barco: Barco) {
+    let casillasBarco: Casilla[] = barco.posiciones;
+    for (let i = 0; i < casillasBarco.length; i++) {
+      let casilla: Casilla = casillasBarco[i];
+      casilla.estado = Estado.hundido;
+    }
+  }
+  public get flota() {
+    return this._flota;
   }
 }
