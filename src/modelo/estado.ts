@@ -1,3 +1,5 @@
-export enum Estado{
-    tocado,indemne
+export enum Estado {
+  tocado,
+  hundido,
+  indemne,
 }

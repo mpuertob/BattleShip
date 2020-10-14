@@ -37,37 +37,14 @@ export class Barco {
     return false;
   }
 
-  /**
-   * Getter size
-   * @return {number}
-   */
   public get size(): number {
     return this._size;
   }
   public getCoordenada(posicion: number): Coordenada {
     return this._posiciones[posicion].coordenada;
   }
-  /**
-   * Getter posiciones
-   * @return {Casilla[]}
-   */
+
   public get posiciones(): Casilla[] {
     return this._posiciones;
-  }
-
-  /**
-   * Setter size
-   * @param {number} value
-   */
-  public set size(value: number) {
-    this._size = value;
-  }
-
-  /**
-   * Setter posiciones
-   * @param {Casilla[]} value
-   */
-  public set posiciones(value: Casilla[]) {
-    this._posiciones = value;
   }
 }
