@@ -27,37 +27,18 @@ var Barco = /** @class */ (function () {
         return false;
     };
     Object.defineProperty(Barco.prototype, "size", {
-        /**
-         * Getter size
-         * @return {number}
-         */
         get: function () {
             return this._size;
-        },
-        /**
-         * Setter size
-         * @param {number} value
-         */
-        set: function (value) {
-            this._size = value;
         },
         enumerable: false,
         configurable: true
     });
+    Barco.prototype.getCoordenada = function (posicion) {
+        return this._posiciones[posicion].coordenada;
+    };
     Object.defineProperty(Barco.prototype, "posiciones", {
-        /**
-         * Getter posiciones
-         * @return {Casilla[]}
-         */
         get: function () {
             return this._posiciones;
-        },
-        /**
-         * Setter posiciones
-         * @param {Casilla[]} value
-         */
-        set: function (value) {
-            this._posiciones = value;
         },
         enumerable: false,
         configurable: true
@@ -65,4 +46,4 @@ var Barco = /** @class */ (function () {
     return Barco;
 }());
 exports.Barco = Barco;
-//# sourceMappingURL=barco.js.map
+//# sourceMappingURL=Barco.js.map
