@@ -1,3 +1,4 @@
-export enum Sentido{
-    abajo,derecha
+export enum Sentido {
+  abajo,
+  derecha,
 }

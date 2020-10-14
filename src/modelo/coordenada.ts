@@ -1,5 +1,4 @@
 import { Sentido } from "./sentido";
-
 export class Coordenada {
   //La forma ts para declarar propiedades obligatorias
   constructor(private _x: number, private _y: number) {}

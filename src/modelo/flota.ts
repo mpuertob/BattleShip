@@ -1,4 +1,4 @@
-import { Barco } from "./barco";
+import { Barco } from "./Barco";
 
 /*Es la clase
 que contiene todos los barcos 
