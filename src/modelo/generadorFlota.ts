@@ -7,6 +7,7 @@
 //(max fila o columna)
 
 import { Dimension } from "./Dimension";
+import { Sentido } from "./sentido";
 
 export class GeneradorFlota {
   constructor(private _dimension: Dimension) {}
@@ -15,5 +16,16 @@ export class GeneradorFlota {
     maximo += 1;
     let aleatorio: number = Math.random() * (maximo - minimo + minimo);
     return Math.floor(aleatorio);
+  }
+
+  private obtenerSentidoAleatorio(): Sentido {
+    let sentido: Sentido;
+    let numeroAleatorio = this.obtenerNumeroAleatorio(0, 1);
+    if (numeroAleatorio == 1) {
+      sentido = Sentido.abajo;
+    } else {
+      sentido = Sentido.derecha;
+    }
+    return sentido;
   }
 }
