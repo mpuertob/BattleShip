@@ -13,6 +13,26 @@ var Flota = /** @class */ (function () {
         this._generadorFlota = new generadorFlota_1.GeneradorFlota(this._dimension);
         this.crearFlotas();
     }
+    Flota.prototype.comprobarBarcosTotalesHundidos = function (numeroBarcosHundidos) {
+        var tocados;
+        for (var i = 0; i < this._flota.length; i++) {
+            tocados = 0;
+            var longitudFlotaBarcos = this._flota[i].posiciones.length;
+            for (var j = 0; j < longitudFlotaBarcos; j++) {
+                var casilla = this.getPosicionBarcoConcreto(i, j);
+                if (casilla.estado == estado_1.Estado.tocado) {
+                    tocados++;
+                }
+                if (tocados == longitudFlotaBarcos) {
+                    var barcoAhundir = this._flota[i];
+                    this.hundirBarco(barcoAhundir);
+                    numeroBarcosHundidos++;
+                    alert("Hundido");
+                }
+            }
+        }
+        return numeroBarcosHundidos;
+    };
     Flota.prototype.crearFlotas = function () {
         var tamanoBarcos = [2, 2, 2, 2, 3, 3, 3, 4, 4];
         for (var i = 0; i < tamanoBarcos.length; i++) {

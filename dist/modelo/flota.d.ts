@@ -5,6 +5,7 @@ export declare class Flota {
     private _generadorFlota;
     private _flota;
     constructor(_dimension: Dimension);
+    comprobarBarcosTotalesHundidos(numeroBarcosHundidos: number): number;
     private crearFlotas;
     private getPosicionBarcoConcreto;
     private hundirBarco;

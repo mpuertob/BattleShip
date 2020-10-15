@@ -15,6 +15,26 @@ export class Flota {
     this._generadorFlota = new GeneradorFlota(this._dimension);
     this.crearFlotas();
   }
+  public comprobarBarcosTotalesHundidos(numeroBarcosHundidos: number): number {
+    let tocados: number;
+    for (let i = 0; i < this._flota.length; i++) {
+      tocados = 0;
+      let longitudFlotaBarcos: number = this._flota[i].posiciones.length;
+      for (let j = 0; j < longitudFlotaBarcos; j++) {
+        let casilla: Casilla = this.getPosicionBarcoConcreto(i, j);
+        if (casilla.estado == Estado.tocado) {
+          tocados++;
+        }
+        if (tocados == longitudFlotaBarcos) {
+          let barcoAhundir: Barco = this._flota[i];
+          this.hundirBarco(barcoAhundir);
+          numeroBarcosHundidos++;
+          alert("Hundido");
+        }
+      }
+    }
+    return numeroBarcosHundidos;
+  }
 
   private crearFlotas(): void {
     const tamanoBarcos = [2, 2, 2, 2, 3, 3, 3, 4, 4];
@@ -27,7 +47,7 @@ export class Flota {
   private getPosicionBarcoConcreto(
     posicionBarco: number,
     posicionCasilla: number
-  ) {
+  ): Casilla {
     return this._flota[posicionBarco].posiciones[posicionCasilla];
   }
 
